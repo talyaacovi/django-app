@@ -1,0 +1,22 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+
+<h1>Here are the messages from the site admin!</h1>
+	{% for message in messages %}
+		<div>
+			<h2>{{ message.subject }}</h2>
+			<h3>From: {{ message.sender }}</h3>
+			<h3>To: {{ message.recipient }}</h3>
+			<p>{{ message.message }}</p>
+			<p>{{ message.send_date }}</p>
+		</div>
+	{% endfor %}
+
+<h1>Respond to the site admin:</h1>
+<form method='POST'>
+		{% csrf_token %} {{ form.as_p }}
+		<button type='submit'>Submit</button>
+</form>	
+
+{% endblock %}
