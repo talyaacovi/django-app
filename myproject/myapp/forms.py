@@ -23,3 +23,4 @@ class MessageForm(forms.ModelForm):
 	class Meta:
 		model = Message
 		fields = ('subject', 'message',)
+		# sender = forms.CharField(disabled=True)
